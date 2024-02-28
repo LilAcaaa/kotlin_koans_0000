@@ -1,0 +1,19 @@
+//NULLABLE TYPES
+fun sendMessageToClient(
+        client: Client?, message: String?, mailer: Mailer
+) {
+    val email = client?.personalInfo?.email
+    if (email != null && message != null) {
+        mailer.sendMessage(email, message)
+    }
+}
+
+class Client(val personalInfo: PersonalInfo?)
+class PersonalInfo(val email: String?)
+interface Mailer {
+    fun sendMessage(email: String, message: String)
+}
+//difungsi sendMessageToClient telah dideklarasikan bahwa variable client dan message dapat bernilai null
+//baris val email = client?.personalInfo?.email, ekspresi safe call (?.) digunakan untuk memastikan bahwa tidak akan terjadi NullPointerException. 
+//Jika client atau personalInfo bernilai null, maka email akan diinisialisasi dengan null.
+//lalu dibuatkan kondisi if dimana, kondisi ini memeriksa apakah email dan message tidak null. Jika keduanya tidak null, maka pesan akan dikirim menggunakan mailer.sendMessage(email, message).

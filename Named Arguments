@@ -1,0 +1,4 @@
+//NAMED ARGUMENT
+fun joinOptions(options: Collection<String>) =
+options.joinToString(prefix = "[", postfix = "]")
+//digunakan untuk menggabungkan string dari koleksi option menjadi satu string dan ditambahkan "[" di awal dan "]" di akhir output
